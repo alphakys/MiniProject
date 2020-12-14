@@ -24,18 +24,18 @@ public class MainBoard {
 		//입-출력 스트림
 		//key
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		//txt
+		
+		//파일 입출력 스트림
 		InputStreamReader isr = new FileReader("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB.txt");
 		BufferedReader brText = new BufferedReader(isr);
 		//OutputStreamWriter isw = new FileWriter("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB-1.txt");
 		
 		//DB 관리를 위한 ArrayList
-		ArrayList<PhoneDB> pdArr = new ArrayList<>();
+		pdArray pdArr = new pdArray();
 		
 	
 		
-		int selection = br.read();
+		
 		
 		
 		String[] txt = brText.readLine().split(",");
@@ -48,21 +48,21 @@ public class MainBoard {
 		pdArr.add(new PhoneDB(txt2[0],txt2[1],txt2[2]));
 
 		
-		
-		
-	
+		pdArr.showList();
 		
 	
+		
+	
 			
-
+		int selection = br.read();
 			
-			
-		/*
+		while(true) {	
+		
 		if(selection==1) {
-			txtPhone 
+			pdArr.showList(); 
 			
 		}
-		*/
+		
 		
 		if(selection==2) {
 			System.out.println("<2.등록>");
@@ -82,7 +82,7 @@ public class MainBoard {
 			System.out.println("<3.삭제>");
 			System.out.print(">번호: ");
 			int removeNum = br.read();
-			pdArr.remove(removeNum-1);
+			pdArr.remove(removeNum);
 			System.out.println("[삭제되었습니다.]");
 			
 		}
@@ -97,38 +97,27 @@ public class MainBoard {
 		if(selection==4) {
 			System.out.println("<4.검색>");
 			System.out.print(">이름: ");
+			String strSearch = br.readLine();
 			
 		}
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		}
 		
 	}
+	
 
 }
+
+	
+
+
+
+
+
+
+
+
+
+
+

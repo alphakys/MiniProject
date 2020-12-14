@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PhoneDB {
 	private String name;
-	private String ph;
+	private String hp;
 	private String company;
 	
 	
@@ -15,9 +15,9 @@ public class PhoneDB {
 	
 	public PhoneDB() {}
 	
-	public PhoneDB(String name, String ph, String company) {
+	public PhoneDB(String name, String hp, String company) {
 		this.name = name;
-		this.ph = ph;
+		this.hp = hp;
 		this.company = company;
 	}
 	
@@ -31,10 +31,10 @@ public class PhoneDB {
 		this.name = name;
 	}
 	public String getPh() {
-		return ph;
+		return hp;
 	}
 	public void setPh(String ph) {
-		this.ph = ph;
+		this.hp = hp;
 	}
 	public String getCompany() {
 		return company;
@@ -48,11 +48,11 @@ public class PhoneDB {
 	
 	@Override
 	public String toString() {
-		return "PhoneDB [name=" + name + ", ph=" + ph + ", company=" + company + "]";
+		return name+"    "+hp+"    "+company;
 	}
 
 	
-	
+	//이름 검색을 위한 메서드
 	
 	@Override
 	public int hashCode() {
@@ -60,7 +60,7 @@ public class PhoneDB {
 		int result = 1;
 		result = prime * result + ((company == null) ? 0 : company.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((ph == null) ? 0 : ph.hashCode());
+		result = prime * result + ((hp == null) ? 0 : hp.hashCode());
 		return result;
 	}
 
@@ -83,16 +83,19 @@ public class PhoneDB {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (ph == null) {
-			if (other.ph != null)
+		if (hp == null) {
+			if (other.hp != null)
 				return false;
-		} else if (!ph.equals(other.ph))
+		} else if (!hp.equals(other.hp))
 			return false;
 		return true;
 	}
 	
 	
-	
+	public boolean isNameEquals(String key) {
+		
+		return key.contains(name);
+	}
 	
 	
 	
