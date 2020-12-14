@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 public class MainBoard {
 
@@ -29,6 +30,11 @@ public class MainBoard {
 		BufferedReader brText = new BufferedReader(isr);
 		OutputStreamWriter isw = new FileWriter("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB.txt");
 		
+		//DB 관리를 위한 ArrayList
+		ArrayList<PhoneDB> dbArr = new ArrayList<>();
+		
+		System.out.println();
+		
 		int selection = brKey.read();
 		
 		
@@ -37,8 +43,8 @@ public class MainBoard {
 		
 		String[] element = txtPhone.split(",");
 		
-		for()
-		new PhoneDB(element[0],element[1],element[2]);
+		
+		dbArr.add(new PhoneDB(element[0],element[1],element[2]));
 		
 		/*
 		if(selection==1) {
