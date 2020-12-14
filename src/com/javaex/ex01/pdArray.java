@@ -20,7 +20,7 @@ public class pdArray {
 	//특정 목록 데이터 출력
 	
 	public void showInfo(int index) {
-		System.out.print(index+"   ");
+		System.out.print(index+".   ");
 		System.out.println(pdArr.get(index-1).toString());
 		
 	}
@@ -44,11 +44,23 @@ public class pdArray {
 		
 	}
 		
-	/*	
-	public showInfoName(String name) {
-		pdArr.get(0).getName()
+	//이름으로 검색한 리스트 정보 출력 메서드
+	
+	
+	public void showSearchedInfo(CharSequence key) {
+		
+		for(int i=0;i<pdArr.size();i++) {
+			boolean searchName = pdArr.get(i).getName().contains(key); //리스트에 이름이 있는지 확인하고 맞으면 true 반환
+			
+			if(searchName==true) {
+								showInfo(i+1);
+								}
+			
+		}
+		
+			
 	}
-	*/
+	
 		
 		
 		

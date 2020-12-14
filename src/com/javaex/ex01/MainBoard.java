@@ -48,9 +48,12 @@ public class MainBoard {
 		pdArr.add(new PhoneDB(txt2[0],txt2[1],txt2[2]));
 
 		
-		pdArr.showList();
 		
-	
+		pdArr.showSearchedInfo("이");
+		
+		
+		
+		
 		
 	
 			

@@ -92,10 +92,8 @@ public class PhoneDB {
 	}
 	
 	
-	public boolean isNameEquals(String key) {
-		
-		return key.contains(name);
-	}
+	
+	
 	
 	
 	
