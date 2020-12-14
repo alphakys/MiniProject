@@ -7,19 +7,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
 
 public class MainBoard {
 
-	public static void main(String[] args)throws IOException {
-		
-		System.out.println("******************************");
-		System.out.println("*      전화번호 관리 프로그램                 *");
-		System.out.println("******************************");
-		System.out.println();
-		System.out.println("1.리스트  2.등록  3.삭제  4.검색  5.종료");
-		System.out.println("-------------------------------");
-		System.out.println(">메뉴번호: ");
+		public static void main(String[] args) throws IOException{
 		
 		//입-출력 스트림
 		//key
@@ -28,16 +19,12 @@ public class MainBoard {
 		//파일 입출력 스트림
 		InputStreamReader isr = new FileReader("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB.txt");
 		BufferedReader brText = new BufferedReader(isr);
-		//OutputStreamWriter isw = new FileWriter("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB-1.txt");
-		
+	
+		 
 		//DB 관리를 위한 ArrayList
 		pdArray pdArr = new pdArray();
 		
-	
-		
-		
-		
-		
+		/*
 		String[] txt = brText.readLine().split(",");
 		String[] txt1 = brText.readLine().split(",");
 		String[] txt2 = brText.readLine().split(",");
@@ -46,81 +33,96 @@ public class MainBoard {
 		pdArr.add(new PhoneDB(txt[0],txt[1],txt[2]));
 		pdArr.add(new PhoneDB(txt1[0],txt1[1],txt1[2]));
 		pdArr.add(new PhoneDB(txt2[0],txt2[1],txt2[2]));
-
+		*/
 		
+		boolean run = true;
 		
-		pdArr.showSearchedInfo("이");
-		
-		
-		
-		
-		
-	
 			
-		int selection = br.read();
-			
-		while(true) {	
+		while(run) {	
 		
+			System.out.println("******************************");
+			System.out.println("*      전화번호 관리 프로그램                 *");
+			System.out.println("******************************");
+			System.out.println();
+			System.out.println("1.리스트  2.등록  3.삭제  4.검색  5.종료");
+			System.out.println("-------------------------------");
+			System.out.print(">메뉴번호: ");
+			
+			int selection = Integer.parseInt(br.readLine());
+			
 		if(selection==1) {
-			pdArr.showList(); 
+		
+		 pdArr.showList(); 
 			
 		}
-		
-		
-		if(selection==2) {
-			System.out.println("<2.등록>");
-			System.out.print(">이름: ");
-			String strName = br.readLine();
-			System.out.print(">휴대전화: ");
-			String strHp = br.readLine();
-			System.out.print(">회사전화: ");
-			String strCompany = br.readLine();
-			System.out.println("[등록되었습니다.]");
+		else if(selection==2) {
 			
-			pdArr.add(new PhoneDB(strName, strHp, strCompany));
+				System.out.println("<2.등록>");
+				System.out.print(">이름: ");
+				String strName = br.readLine();
+				System.out.print(">휴대전화: ");
+				String strHp = br.readLine();
+				System.out.print(">회사전화: ");
+				String strCompany = br.readLine();
+				System.out.println("[등록되었습니다.]");
 			
-		}
+				pdArr.add(new PhoneDB(strName, strHp, strCompany));
 		
-		if(selection==3) {
-			System.out.println("<3.삭제>");
-			System.out.print(">번호: ");
-			int removeNum = br.read();
-			pdArr.remove(removeNum);
-			System.out.println("[삭제되었습니다.]");
-			
+				
+				OutputStreamWriter isw = new FileWriter("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB.txt");		
+				BufferedWriter bw = new BufferedWriter(isw);
+		for(PhoneDB pd : pdArr.pdArr) {
+			bw.write(pd.getName()+","+pd.gethp()+","+pd.getCompany());
 		}
-		
-		if(selection==5) {
-			System.out.println("***************************");
-			System.out.println("          감사합니다                    ");
-			System.out.println("***************************");
-			break;
-		}
-		
-		if(selection==4) {
-			System.out.println("<4.검색>");
-			System.out.print(">이름: ");
-			String strSearch = br.readLine();
-			
-		}
-		
+		bw.flush();
+		bw.close();
 		
 		}
-		
-	}
-	
+		else if(selection==3) {
 
+				System.out.println("<3.삭제>");
+				System.out.print(">번호: ");
+				int removeNum = Integer.parseInt(br.readLine());
+				pdArr.remove(removeNum);
+				System.out.println("[삭제되었습니다.]");
+				
+				OutputStreamWriter isw = new FileWriter("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB.txt");		
+				BufferedWriter bw = new BufferedWriter(isw);		
+		for(PhoneDB pd : pdArr.pdArr) {
+			bw.write(pd.getName()+","+pd.gethp()+","+pd.getCompany());
+			
+		}
+		
+			bw.flush();
+			bw.close();
+		}
+		else if(selection==4) {
+			
+				
+				 System.out.println("<4.검색>");
+				 System.out.print(">이름: ");
+				 String strSearch = br.readLine();		
+				 pdArr.showSearchedInfo(strSearch);
+		}
+		else if(selection==5) {
+			
+					System.out.println("***************************");
+					System.out.println("          감사합니다                    ");
+					System.out.println("***************************");
+					run = false;
+					
+		}
+		else {
+				  System.out.println("[다시 입력해주세요]");
+		     }
+		
+			
+		
+
+		}
+		
+		
+		br.close();
+		brText.close();
+		}
 }
-
-	
-
-
-
-
-
-
-
-
-
-
-

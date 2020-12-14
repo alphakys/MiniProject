@@ -30,10 +30,10 @@ public class PhoneDB {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPh() {
+	public String gethp() {
 		return hp;
 	}
-	public void setPh(String ph) {
+	public void sethp(String ph) {
 		this.hp = hp;
 	}
 	public String getCompany() {
@@ -90,27 +90,6 @@ public class PhoneDB {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
