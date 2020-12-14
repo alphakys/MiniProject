@@ -23,35 +23,100 @@ public class MainBoard {
 		
 		//입-출력 스트림
 		//key
-		BufferedReader brKey = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		//txt
 		InputStreamReader isr = new FileReader("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB.txt");
 		BufferedReader brText = new BufferedReader(isr);
-		OutputStreamWriter isw = new FileWriter("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB.txt");
+		//OutputStreamWriter isw = new FileWriter("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB-1.txt");
 		
 		//DB 관리를 위한 ArrayList
-		ArrayList<PhoneDB> dbArr = new ArrayList<>();
+		ArrayList<PhoneDB> pdArr = new ArrayList<>();
 		
-		System.out.println();
+	
 		
-		int selection = brKey.read();
-		
-		
-		String txtPhone = brText.readLine();
-		System.out.println(txtPhone);
-		
-		String[] element = txtPhone.split(",");
+		int selection = br.read();
 		
 		
-		dbArr.add(new PhoneDB(element[0],element[1],element[2]));
+		String[] txt = brText.readLine().split(",");
+		String[] txt1 = brText.readLine().split(",");
+		String[] txt2 = brText.readLine().split(",");
 		
+		
+		pdArr.add(new PhoneDB(txt[0],txt[1],txt[2]));
+		pdArr.add(new PhoneDB(txt1[0],txt1[1],txt1[2]));
+		pdArr.add(new PhoneDB(txt2[0],txt2[1],txt2[2]));
+
+		
+		
+		
+	
+		
+	
+			
+
+			
+			
 		/*
 		if(selection==1) {
 			txtPhone 
 			
 		}
 		*/
+		
+		if(selection==2) {
+			System.out.println("<2.등록>");
+			System.out.print(">이름: ");
+			String strName = br.readLine();
+			System.out.print(">휴대전화: ");
+			String strHp = br.readLine();
+			System.out.print(">회사전화: ");
+			String strCompany = br.readLine();
+			System.out.println("[등록되었습니다.]");
+			
+			pdArr.add(new PhoneDB(strName, strHp, strCompany));
+			
+		}
+		
+		if(selection==3) {
+			System.out.println("<3.삭제>");
+			System.out.print(">번호: ");
+			int removeNum = br.read();
+			pdArr.remove(removeNum-1);
+			System.out.println("[삭제되었습니다.]");
+			
+		}
+		
+		if(selection==5) {
+			System.out.println("***************************");
+			System.out.println("          감사합니다                    ");
+			System.out.println("***************************");
+			break;
+		}
+		
+		if(selection==4) {
+			System.out.println("<4.검색>");
+			System.out.print(">이름: ");
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
