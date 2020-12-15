@@ -5,6 +5,13 @@ import java.util.ArrayList;
 public class pdArray {
 	
 	ArrayList<PhoneDB> pdArr = new ArrayList<>();
+
+	
+	public pdArray() {
+		
+	}
+	
+	
 	
 	//리스트에 있는 전체 목록 
 	

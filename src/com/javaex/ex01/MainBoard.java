@@ -20,23 +20,31 @@ public class MainBoard {
 		InputStreamReader isr = new FileReader("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB.txt");
 		BufferedReader brText = new BufferedReader(isr);
 	
-		 
+	
 		//DB 관리를 위한 ArrayList
 		pdArray pdArr = new pdArray();
+	
 		
-		/*
-		String[] txt = brText.readLine().split(",");
-		String[] txt1 = brText.readLine().split(",");
-		String[] txt2 = brText.readLine().split(",");
+		while(true) {
+			 String str;
+			 if((str = brText.readLine())!=null) {
+			String[] DB = str.split(",");
+				String name = DB[0];
+				String hp = DB[1];
+			 	String company = DB[2];
+				pdArr.add(new PhoneDB(name,hp,company));
+				
+			}
+			 else {
+				 break;
+			 }
+
+		}
 		
 		
-		pdArr.add(new PhoneDB(txt[0],txt[1],txt[2]));
-		pdArr.add(new PhoneDB(txt1[0],txt1[1],txt1[2]));
-		pdArr.add(new PhoneDB(txt2[0],txt2[1],txt2[2]));
-		*/
+		
 		
 		boolean run = true;
-		
 			
 		while(run) {	
 		
@@ -73,9 +81,11 @@ public class MainBoard {
 				BufferedWriter bw = new BufferedWriter(isw);
 		for(PhoneDB pd : pdArr.pdArr) {
 			bw.write(pd.getName()+","+pd.gethp()+","+pd.getCompany());
+			bw.newLine();
 		}
 		bw.flush();
 		bw.close();
+		
 		
 		}
 		else if(selection==3) {
@@ -95,6 +105,8 @@ public class MainBoard {
 		
 			bw.flush();
 			bw.close();
+			
+			
 		}
 		else if(selection==4) {
 			
@@ -124,5 +136,6 @@ public class MainBoard {
 		
 		br.close();
 		brText.close();
+		
 		}
 }
