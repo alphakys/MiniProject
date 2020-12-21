@@ -2,7 +2,7 @@ package com.javaex.ex01;
 
 import java.util.ArrayList;
 
-public class PhoneDB {
+public class PhoneVO {
 	private String name;
 	private String hp;
 	private String company;
@@ -13,9 +13,9 @@ public class PhoneDB {
 	
 	
 	
-	public PhoneDB() {}
+	public PhoneVO() {}
 	
-	public PhoneDB(String name, String hp, String company) {
+	public PhoneVO(String name, String hp, String company) {
 		this.name = name;
 		this.hp = hp;
 		this.company = company;
@@ -72,7 +72,7 @@ public class PhoneDB {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PhoneDB other = (PhoneDB) obj;
+		PhoneVO other = (PhoneVO) obj;
 		if (company == null) {
 			if (other.company != null)
 				return false;

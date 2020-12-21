@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class MainBoard {
+public class PhoneApp {
 
 		public static void main(String[] args) throws IOException{
 		
@@ -22,7 +22,7 @@ public class MainBoard {
 	
 	
 		//DB 관리를 위한 ArrayList
-		pdArray pdArr = new pdArray();
+		DBmanager pdArr = new DBmanager();
 	
 		
 		while(true) {
@@ -32,7 +32,7 @@ public class MainBoard {
 				String name = DB[0];
 				String hp = DB[1];
 			 	String company = DB[2];
-				pdArr.add(new PhoneDB(name,hp,company));
+				pdArr.add(new PhoneVO(name,hp,company));
 				
 			}
 			 else {
@@ -74,12 +74,12 @@ public class MainBoard {
 				String strCompany = br.readLine();
 				System.out.println("[등록되었습니다.]");
 			
-				pdArr.add(new PhoneDB(strName, strHp, strCompany));
+				pdArr.add(new PhoneVO(strName, strHp, strCompany));
 		
 				
 				OutputStreamWriter isw = new FileWriter("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB.txt");		
 				BufferedWriter bw = new BufferedWriter(isw);
-		for(PhoneDB pd : pdArr.pdArr) {
+		for(PhoneVO pd : pdArr.pdArr) {
 			bw.write(pd.getName()+","+pd.gethp()+","+pd.getCompany());
 			bw.newLine();
 		}
@@ -98,7 +98,7 @@ public class MainBoard {
 				
 				OutputStreamWriter isw = new FileWriter("C:\\Users\\gys11\\바탕 화면\\JavaStudy\\PhoneDB.txt");		
 				BufferedWriter bw = new BufferedWriter(isw);		
-		for(PhoneDB pd : pdArr.pdArr) {
+		for(PhoneVO pd : pdArr.pdArr) {
 			bw.write(pd.getName()+","+pd.gethp()+","+pd.getCompany());
 			
 		}

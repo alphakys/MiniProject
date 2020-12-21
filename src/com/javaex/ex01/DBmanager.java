@@ -2,12 +2,12 @@ package com.javaex.ex01;
 
 import java.util.ArrayList;
 
-public class pdArray {
+public class DBmanager {
 	
-	ArrayList<PhoneDB> pdArr = new ArrayList<>();
+	ArrayList<PhoneVO> pdArr = new ArrayList<>();
 
 	
-	public pdArray() {
+	public DBmanager() {
 		
 	}
 	
@@ -45,7 +45,7 @@ public class pdArray {
 	
 	//리스트에 새로운 데이터 추가
 	
-	public void add(PhoneDB data) {
+	public void add(PhoneVO data) {
 			
 		pdArr.add(data);
 		
